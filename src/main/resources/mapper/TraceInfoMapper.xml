@@ -10,6 +10,11 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
 
+
+    <select id="getTraceGroup" resultType="string">
+        select `trace_id` from trace_map group by `trace_id`
+    </select>
+
     <select id="getTraceInfoList" resultMap="BaseResultMap">
         select `trace_id`, `from_loc`, `to_loc`, `stay_time`, `create_time` from trace_map
 where `trace_id` = #{traceId}

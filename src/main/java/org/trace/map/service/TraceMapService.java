@@ -12,5 +12,5 @@ import java.util.List;
 
 @Service
 public interface TraceMapService {
-    List<List<JSONObject>> getTraceMap(String traceId);
+    List<JSONObject> getTraceMap();
 }

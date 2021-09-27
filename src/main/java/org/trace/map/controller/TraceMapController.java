@@ -1,5 +1,6 @@
 package org.trace.map.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,10 +23,9 @@ public class TraceMapController {
 
 
     @GetMapping("/trace")
-    public ResponseV2 getTraceMap(@RequestParam("traceId") String traceId) {
-        List<List<JSONObject>> traceMap = traceMapService.getTraceMap(traceId);
-        return ResponseHelper.create(traceMap);
+    public ResponseV2 getTraceMap() {
+        List<JSONObject> traceList = traceMapService.getTraceMap();
+        System.out.println(JSON.toJSONString(traceList));
+        return ResponseHelper.create(traceList);
     }
-
-
 }

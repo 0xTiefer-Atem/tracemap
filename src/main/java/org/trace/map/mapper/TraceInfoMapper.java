@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.trace.map.entity.TraceInfo;
 import org.trace.map.entity.Trajectory;
+import org.w3c.dom.ls.LSException;
 
 import java.util.List;
 
@@ -14,5 +15,7 @@ import java.util.List;
 
 @Mapper
 public interface TraceInfoMapper {
+    public List<String> getTraceGroup();
+
     public List<TraceInfo> getTraceInfoList(@Param("traceId") String traceId);
 }
