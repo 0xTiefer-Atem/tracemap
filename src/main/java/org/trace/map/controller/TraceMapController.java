@@ -21,9 +21,9 @@ public class TraceMapController {
     private TraceMapService traceMapService;
 
 
-    @PostMapping("/trace")
-    public ResponseV2 getTraceMap() {
-        List<List<JSONObject>> traceMap = traceMapService.getTraceMap();
+    @GetMapping("/trace")
+    public ResponseV2 getTraceMap(@RequestParam("traceId") String traceId) {
+        List<List<JSONObject>> traceMap = traceMapService.getTraceMap(traceId);
         return ResponseHelper.create(traceMap);
     }
 

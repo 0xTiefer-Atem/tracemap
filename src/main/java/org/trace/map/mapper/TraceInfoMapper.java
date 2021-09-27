@@ -1,6 +1,7 @@
 package org.trace.map.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.trace.map.entity.TraceInfo;
 import org.trace.map.entity.Trajectory;
 
@@ -13,5 +14,5 @@ import java.util.List;
 
 @Mapper
 public interface TraceInfoMapper {
-    public List<TraceInfo> getTraceInfoList();
+    public List<TraceInfo> getTraceInfoList(@Param("traceId") String traceId);
 }

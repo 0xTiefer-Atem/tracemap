@@ -20,6 +20,8 @@ import java.util.List;
 public class TraceInfo {
     private int id;
     private String traceId;
-    private List<Trajectory> trajectoryList;
+    private String fromLoc;
+    private String toLoc;
+    private int stayTime;
     private Date createTime;
 }

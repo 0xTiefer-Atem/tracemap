@@ -4,11 +4,15 @@
     <resultMap id="BaseResultMap" type="org.trace.map.entity.TraceInfo">
         <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="trace_id" jdbcType="VARCHAR" property="traceId"/>
+        <result column="from_loc" jdbcType="VARCHAR" property="fromLoc"/>
+        <result column="to_loc" jdbcType="VARCHAR" property="toLoc"/>
+        <result column="stay_time" jdbcType="INTEGER" property="stayTime"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
 
-    <select id="getTraceInfoList" resultType="org.trace.map.entity.TraceInfo">
-        select `trace_id`, `create_time` from trace_map
+    <select id="getTraceInfoList" resultMap="BaseResultMap">
+        select `trace_id`, `from_loc`, `to_loc`, `stay_time`, `create_time` from trace_map
+where `trace_id` = #{traceId}
     </select>
 
 </mapper>
