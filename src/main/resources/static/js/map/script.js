@@ -198,28 +198,31 @@ var transferPath = [
     [{name: '上海'}, {name: '包头', value: 120}],
     [{name: '上海'}, {name: '昆明', value: 90}],
     [{name: '广州'}, {name: '福州', value: 10}],
-    [{name: '广州'}, {name: '银川', value: 100}],
-    [{name: '广州'}, {name: '拉萨', value: 1}],
+    [{name: '广州'}, {name: '银川', value: 150}],
+    [{name: '广州'}, {name: '拉萨', value: 1}]
 ];
+console.log(transferPath);
 
-// $.ajax({
-//     type: "post",
-//     url: "/map/trace",
-//     //设置发送到服务器的数据类型
-//     contentType: 'application/json;charset=utf-8',
-//     //设置异步处理请求
-//     async: true,
-//     //发送到服务器的数据
-//     // data: JSON.stringify(eleMarkers),
-//     //设置预期服务器响应的数据类型
-//     traditional: true,
-//     dataType: 'json',
-//     //设置请求超时时间30秒
-//     timeout: 30000,
-//     success: function (data) {
-//
-//     }
-// });
+$.ajax({
+    type: "post",
+    url: "http://localhost:8083/map/trace",
+    //设置发送到服务器的数据类型
+    contentType: 'application/json;charset=utf-8',
+    //设置异步处理请求
+    // async: true,
+    //发送到服务器的数据
+    // data: JSON.stringify(eleMarkers),
+    //设置预期服务器响应的数据类型
+    traditional: true,
+    dataType: 'json',
+    //设置请求超时时间30秒
+    timeout: 30000,
+    success: function (data) {
+        // console.log(data);
+        transferPath = data.result.data
+        console.log(transferPath);
+    }
+});
 
 var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
 

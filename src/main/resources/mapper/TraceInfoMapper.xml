@@ -4,9 +4,11 @@
     <resultMap id="BaseResultMap" type="org.trace.map.entity.TraceInfo">
         <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="trace_id" jdbcType="VARCHAR" property="traceId"/>
-        <result column="user_account" jdbcType="VARCHAR" property="userAccount"/>
-        <result column="user_pwd" jdbcType="VARCHAR" property="userPwd"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
+
+    <select id="getTraceInfoList" resultType="org.trace.map.entity.TraceInfo">
+        select `trace_id`, `create_time` from trace_map
+    </select>
 
 </mapper>

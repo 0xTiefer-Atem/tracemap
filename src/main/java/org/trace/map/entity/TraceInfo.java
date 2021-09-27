@@ -21,5 +21,5 @@ public class TraceInfo {
     private int id;
     private String traceId;
     private List<Trajectory> trajectoryList;
-    private Date crate_time;
+    private Date createTime;
 }
