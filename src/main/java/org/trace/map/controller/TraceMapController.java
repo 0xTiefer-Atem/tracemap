@@ -25,7 +25,7 @@ public class TraceMapController {
     @GetMapping("/trace")
     public ResponseV2 getTraceMap() {
         List<JSONObject> traceList = traceMapService.getTraceMap();
-        System.out.println(JSON.toJSONString(traceList));
+        System.out.println(traceList.size());
         return ResponseHelper.create(traceList);
     }
 }

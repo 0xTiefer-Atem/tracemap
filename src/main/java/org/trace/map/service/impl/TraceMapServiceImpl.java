@@ -34,7 +34,7 @@ public class TraceMapServiceImpl implements TraceMapService {
             List<List<JSONObject>> traceGroupList = new ArrayList();
             List<TraceInfo> traceInfoList = traceInfoMapper.getTraceInfoList(traceId);
 
-            traceInfoList.forEach( t -> {
+            traceInfoList.forEach(t -> {
                 List<JSONObject> tempList = new ArrayList<>();
                 JSONObject fromLoc = new JSONObject();
                 fromLoc.put("name", t.getFromLoc());
@@ -43,7 +43,7 @@ public class TraceMapServiceImpl implements TraceMapService {
                 toLoc.put("name", t.getToLoc());
 
                 // 这里根据公式计算最终的感染情况
-                Double value = 0.7 * t.getStayTime() * 20;
+                Double value = 43.3 * t.getRouteLocNum() - 20.1 * t.getPreventionLevel() + 50.2 * t.getSymptom() -28.3 * t.getVaccineNum() + 21.4 * t.getSeason() + 1.4 * t.getType() + 90;
 
                 toLoc.put("value", value.intValue());
                 tempList.add(fromLoc);
