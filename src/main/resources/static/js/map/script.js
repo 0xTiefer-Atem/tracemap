@@ -229,8 +229,8 @@ let legendData = []
 
 $.ajax({
     type: "get",
-    // url: "http://localhost:8083/map/trace",
-    url: "http://47.107.64.157:8083/map/trace",
+    url: "http://localhost:8083/map/trace",
+    // url: "http://47.107.64.157:8083/map/trace",
     //设置发送到服务器的数据类型
     contentType: 'application/json;charset=utf-8',
     //设置异步处理请求

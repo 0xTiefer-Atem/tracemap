@@ -22,6 +22,11 @@ public class TraceInfo {
     private String traceId;
     private String fromLoc;
     private String toLoc;
-    private int stayTime;
+    private int routeLocNum;
+    private int preventionLevel;
+    private int symptom;
+    private int vaccineNum;
+    private int season;
+    private int type;
     private Date createTime;
 }

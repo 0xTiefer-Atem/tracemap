@@ -6,17 +6,35 @@
         <result column="trace_id" jdbcType="VARCHAR" property="traceId"/>
         <result column="from_loc" jdbcType="VARCHAR" property="fromLoc"/>
         <result column="to_loc" jdbcType="VARCHAR" property="toLoc"/>
-        <result column="stay_time" jdbcType="INTEGER" property="stayTime"/>
+        <result column="route_loc_num" jdbcType="INTEGER" property="routeLocNum"/>
+        <result column="prevention_level" jdbcType="INTEGER" property="preventionLevel"/>
+        <result column="symptom" jdbcType="INTEGER" property="symptom"/>
+        <result column="season" jdbcType="INTEGER" property="season"/>
+        <result column="vaccine_num" jdbcType="INTEGER" property="vaccineNum"/>
+        <result column="a_type" jdbcType="INTEGER" property="type"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
 
 
     <select id="getTraceGroup" resultType="string">
-        select `trace_id` from trace_map group by `trace_id`
+        select `trace_id`
+        from trace_map
+        group by `trace_id`
     </select>
 
     <select id="getTraceInfoList" resultMap="BaseResultMap">
         select `trace_id`, `from_loc`, `to_loc`, `stay_time`, `create_time` from trace_map
+        select `trace_id`,
+               `from_loc`,
+               `to_loc`,
+               `route_loc_num`,
+               `prevention_level`,
+               `symptom`,
+               `season`,
+               `vaccine_num`,
+               `a_type`,
+               `create_time`
+        from trace_map
         where `trace_id` = #{traceId}
     </select>
 
